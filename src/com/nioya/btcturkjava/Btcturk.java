@@ -35,22 +35,9 @@ public class Btcturk {
 
 			for (int i = 0; i < jsonArray.length(); i++) {
 				JSONObject tempJSON = jsonArray.getJSONObject(i);
-
 				Ticker ticker = gson.fromJson(tempJSON.toString(), Ticker.class);
-				switch (ticker.getPair()) {
-				case "BTCTRY":
-					tickers.setBTCTRY(ticker);
-					break;
-				case "ETHBTC":
-					tickers.setETHBTC(ticker);
-					break;
-				case "ETHTRY":
-					tickers.setETHTRY(ticker);
-					break;
-				case "XRPTRY":
-					tickers.setXRPTRY(ticker);
-					break;
-				}
+				tickers.setTicker(ticker.getPair(),ticker);
+
 			}
 		}
 

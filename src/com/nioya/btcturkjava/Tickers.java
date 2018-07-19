@@ -1,36 +1,32 @@
 package com.nioya.btcturkjava;
 
+import java.util.HashMap;
+
 public class Tickers {
 	
-	private Ticker BTCTRY = new Ticker();
-	private Ticker ETHBTC = new Ticker();
-	private Ticker ETHTRY = new Ticker();
-	private Ticker XRPTRY = new Ticker();
+	private HashMap<String, Ticker> tickers = new HashMap<String, Ticker>();
+
+	public HashMap<String, Ticker> getTickers() {
+		return tickers;
+	}
+	public Ticker getTicker(String currency) {
+		return this.tickers.get(currency);
+	}
+
+	public void setTicker(String currency, Ticker ticker) {
+		this.tickers.put(currency, ticker);
+	}
 	
-	public Ticker getBTCTRY() {
-		return BTCTRY;
+	public void setTickers(HashMap<String, Ticker> tickers) {
+		this.tickers = tickers;
 	}
-	public void setBTCTRY(Ticker bTCTRY) {
-		BTCTRY = bTCTRY;
+	
+	
+	public Object[] getTickerList() {
+		Object[] keyset = tickers.keySet().toArray();
+		return keyset;
 	}
-	public Ticker getETHBTC() {
-		return ETHBTC;
-	}
-	public void setETHBTC(Ticker eTHBTC) {
-		ETHBTC = eTHBTC;
-	}
-	public Ticker getETHTRY() {
-		return ETHTRY;
-	}
-	public void setETHTRY(Ticker eTHTRY) {
-		ETHTRY = eTHTRY;
-	}
-	public Ticker getXRPTRY() {
-		return XRPTRY;
-	}
-	public void setXRPTRY(Ticker xRPTRY) {
-		XRPTRY = xRPTRY;
-	}
+	
 	
 	
 	
